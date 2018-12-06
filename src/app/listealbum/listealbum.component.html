@@ -1,0 +1,22 @@
+<mat-card>
+    <form #idform="ngForm">
+        <mat-form-field>
+            <input id="motcle" name="motcle" required ngModel matInput placeholder="Rechercher">
+        </mat-form-field>
+        <button type="submit" mat-button color="primary" (click)="chercherAlbum(idform.value.motcle); idform.reset();">Valider</button>
+    </form>
+</mat-card>
+
+
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let album of albums">
+        <a [routerLink]="['/album', album.id]">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title></mat-card-title>
+                </mat-card-header>
+                <img src="{{ album.images[0].url }}">
+            </mat-card>
+        </a>
+    </mat-grid-tile>
+</mat-grid-list>

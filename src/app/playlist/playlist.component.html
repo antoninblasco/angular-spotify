@@ -1,0 +1,16 @@
+<mat-card>
+    <form #idform="ngForm">
+        <mat-form-field>
+            <input id="nomplaylist" name="nomplaylist" required ngModel matInput placeholder="Nom de la playlist">
+        </mat-form-field>
+        <button type="submit" class="btn" (click)="creerPlaylist(idform.value.nomplaylist); idform.reset();">+ Nouvelle playlist</button>
+    </form>
+</mat-card>
+
+<div class="playlists" *ngIf="playlists != null">
+    <ul *ngFor="let playlist of playlists.items">
+        <li>
+            {{playlist.name}} ({{playlist.tracks.total}})
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,7 @@
+<div class="playlists" *ngIf="playlists != null">
+    <ul *ngFor="let playlist of playlists.items">
+        <li>
+           <button mat-button (click)=addToPlaylist(playlist.id)>{{playlist.name}} ({{playlist.tracks.total}})</button>
+        </li>
+    </ul>
+</div>

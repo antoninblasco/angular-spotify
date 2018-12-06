@@ -1,0 +1,12 @@
+<div *ngIf="infosAlbum != null">
+    <img src="{{infosAlbum.images[0].url}}" alt="cover">
+    <div>{{infosAlbum.name}}</div>
+    <div>{{infosAlbum.artists[0].name}}</div>
+    <ul class="tracks" *ngFor="let track of infosAlbum.tracks.items">
+        <li>{{track.name}}
+            <audio id=”AudioSong” controls *ngIf="track.preview_url != null" [src]="track.preview_url">pas supporté</audio>
+            <button mat-button (click)="openPopup(track.uri)">
+            <mat-icon>playlist_add</mat-icon></button>
+        </li>
+    </ul>
+</div>
